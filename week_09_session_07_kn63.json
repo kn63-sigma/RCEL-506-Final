@@ -1,0 +1,112 @@
+{
+  "session_metadata": {
+    "student_id": "Kai Niland (S01547287)",
+    "session_id": "week_09_session_07_kn63",
+    "course_term": "Week 09, Log 13-14",
+    "topic": "Model Optimization, Risk Audit, & Enterprise Implementation Architecture",
+    "status": "FINALIZED",
+    "timestamp": "2026-08-02T21:07:00CDT"
+  },
+  "data_governance": {
+    "cohort_size_N": 37,
+    "excluded_projects": [12, 13, 14, 15],
+    "nan_imputation_policy": "Split-Pool Method",
+    "out_of_scope_nan_fill_value": 0.0,
+    "target_variable": "rework_percentage"
+  },
+  "quantitative_base_model": {
+    "algorithm": "HuberRegressor",
+    "epsilon": 1.35,
+    "alpha_baseline": 0.0001,
+    "max_iter": 1000,
+    "scaling": "StandardScaler",
+    "validation_method": "LeaveOneOutCV (LOOCV)",
+    "alpha_optimization_audit": {
+      "finding": "LOOCV RMSE reached minimum at alpha=100.0, shrinking feature weights to near-zero (~mean predictor). Confirmed high feature multicollinearity and structural limitations of macro-level trade densities without site execution context."
+    }
+  },
+  "quantitative_scorecard": {
+    "civil_labor_density": {
+      "pearson_r": -0.076083,
+      "huber_beta": -0.007422
+    },
+    "structural_labor_density": {
+      "pearson_r": 0.027101,
+      "huber_beta": 0.017404
+    },
+    "equipment_labor_density": {
+      "pearson_r": 0.043308,
+      "huber_beta": 0.022481
+    },
+    "pipe_labor_density": {
+      "pearson_r": 0.059096,
+      "huber_beta": 0.008966
+    },
+    "electrical_labor_density": {
+      "pearson_r": 0.042621,
+      "huber_beta": -0.000832
+    },
+    "other_labor_density": {
+      "pearson_r": -0.118453,
+      "huber_beta": 0.009139
+    },
+    "early_phase_congestion": {
+      "formula": "civil_labor_density * (pipe_labor_density + electrical_labor_density)",
+      "pearson_r": 0.040585,
+      "huber_beta": 0.020601
+    }
+  },
+  "business_implementation_architecture": {
+    "model_type": "Two-Stage Hybrid Predictive Engine",
+    "formula": "final_predicted_rework_pct = base_rework_pred * M_site",
+    "multiplier_formula": "M_site = 1.00 + sum(delta_m_i)",
+    "governance_controls": {
+      "multiplier_floor": 1.00,
+      "multiplier_ceiling": 3.00,
+      "intra_pillar_damping_factor": 0.85,
+      "damping_trigger_threshold": 3
+    }
+  },
+  "qualitative_calibration_matrix": {
+    "pillar_1_spatial_and_traffic_context": {
+      "congestion_score_level_1": 0.00,
+      "congestion_score_level_2": 0.05,
+      "congestion_score_level_3": 0.10,
+      "congestion_score_level_4": 0.20,
+      "congestion_score_level_5": 0.35,
+      "traffic_density_rate_high": 0.10,
+      "vertical_staging_index_high": 0.15,
+      "laydown_area_deficit": 0.10
+    },
+    "pillar_2_operational_and_schedule_maturity": {
+      "non_ifc_drawing_flag": 0.30,
+      "schedule_compression_none": 0.00,
+      "schedule_compression_moderate": 0.10,
+      "schedule_compression_severe": 0.25,
+      "awp_constraint_release_deficit": 0.15
+    },
+    "pillar_3_human_capital_and_stressors": {
+      "shift_fatigue_le_40hrs": 0.00,
+      "shift_fatigue_41_50hrs": 0.05,
+      "shift_fatigue_51_60hrs": 0.12,
+      "shift_fatigue_gt_60hrs": 0.22,
+      "foreman_experience_gap_experienced": 0.00,
+      "foreman_experience_gap_moderate": 0.15,
+      "foreman_experience_gap_severe": 0.30,
+      "extreme_heat_stress": 0.10,
+      "compounding_heat_and_fatigue_scalar": 0.15,
+      "craft_turnover_rate_high": 0.10
+    },
+    "pillar_4_interface_and_quality_handovers": {
+      "critical_path_interface_flag": 0.20,
+      "near_critical_path_interface_flag": 0.10,
+      "first_time_right_qc_pass_rate_low": 0.15,
+      "subcontractor_qpi_lowest_quartile": 0.10
+    }
+  },
+  "risk_alert_thresholds": {
+    "low_risk_threshold": "< 0.04",
+    "medium_risk_threshold": "0.04 - 0.08",
+    "critical_risk_threshold": "> 0.08"
+  }
+}

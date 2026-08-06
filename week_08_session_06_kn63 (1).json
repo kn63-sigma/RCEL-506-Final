@@ -1,0 +1,58 @@
+{
+  "session_metadata": {
+    "status": "FINALIZED",
+    "timestamp": "2026-07-26T18:21:53CDT",
+    "cohort_size_N": 37,
+    "excluded_projects": [12, 13, 14, 15]
+  },
+  "data_governance": {
+    "nan_imputation_policy": "Split-Pool Method",
+    "out_of_scope_nan_fill_value": 0.0,
+    "target_variable": "rework_percentage"
+  },
+  "model_configuration": {
+    "algorithm": "HuberRegressor",
+    "epsilon": 1.35,
+    "max_iter": 1000,
+    "scaling": "StandardScaler",
+    "validation_method": "LeaveOneOutCV (LOOCV)"
+  },
+  "engineered_features": [
+    {
+      "feature_name": "early_phase_congestion",
+      "formula": "civil_labor_density * (pipe_labor_density + electrical_labor_density)",
+      "multivariate_beta_weight": 0.020601,
+      "pearson_r": 0.040585
+    }
+  ],
+  "final_scorecard": {
+    "civil_labor_density": {
+      "pearson_r": -0.076083,
+      "huber_beta": -0.007422
+    },
+    "structural_labor_density": {
+      "pearson_r": 0.027101,
+      "huber_beta": 0.017404
+    },
+    "equipment_labor_density": {
+      "pearson_r": 0.043308,
+      "huber_beta": 0.022481
+    },
+    "pipe_labor_density": {
+      "pearson_r": 0.059096,
+      "huber_beta": 0.008966
+    },
+    "electrical_labor_density": {
+      "pearson_r": 0.042621,
+      "huber_beta": -0.000832
+    },
+    "other_labor_density": {
+      "pearson_r": -0.118453,
+      "huber_beta": 0.009139
+    },
+    "early_phase_congestion": {
+      "pearson_r": 0.040585,
+      "huber_beta": 0.020601
+    }
+  }
+}

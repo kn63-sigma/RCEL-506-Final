@@ -1,0 +1,55 @@
+{
+    "session_metadata": {
+        "student_id": "S01547287",
+        "manager": "Kai Niland",
+        "phase": "Weeks 3-4 Exploratory Data Analysis (EDA) Final Audit",
+        "primary_source": "CII RT-153 (Publication RR153-11), Appendix D",
+        "institution": "Rice University"
+    },
+    "analytical_milestones": [
+        {
+            "milestone": "Pure Ingestion Data Integrity",
+            "finding": "Maintained raw NaN entries for all missing fields across the 41-project registry to guarantee that descriptive parameters capture actual recorded metrics without distortion."
+        },
+        {
+            "milestone": "Pairwise Deletion Validation",
+            "finding": "Verified that runtime calculations dynamically drop incomplete data pairs per variable subset rather than using row-wise pruning, ensuring maximum sample utilization."
+        },
+        {
+            "milestone": "Compositional Mix Multi-Craft Drag Effect",
+            "finding": "Confirmed that the zero-sum nature of percentage bounds creates an inverse tracking pattern where dominant, high-inspection crafts pull secondary discipline percentages down on high-rework jobs."
+        }
+    ],
+    "verified_runtime_metrics": {
+        "Piping": {
+            "pearson_r_coefficient": 0.06654990895108785,
+            "spearman_rank_coefficient": 0.07799496822887583,
+            "risk_assessment": "Primary positive tracking attribute. Directly correlates with intensive weld validation, CWI procedures, and pressure-testing quality oversight."
+        },
+        "Structural": {
+            "pearson_r_coefficient": -0.0002871189421176224,
+            "spearman_rank_coefficient": 0.08086572223223672,
+            "risk_assessment": "Extremely weak inverse trending near absolute statistical zero. Successfully insulated from structural rounding truncations via six-decimal display."
+        },
+        "Equipment": {
+            "pearson_r_coefficient": -0.014914358903492402,
+            "spearman_rank_coefficient": 0.1599890401680551,
+            "risk_assessment": "Linear profile tracking downwards due to data mix constraint; ranking divergence thoroughly traced to extreme outlier alignments on tight sample variances."
+        },
+        "Electrical": {
+            "pearson_r_coefficient": -0.06394738717042164,
+            "spearman_rank_coefficient": -0.11445543379255232,
+            "risk_assessment": "Inverse movement caused by allocation compression on heavy piping failure scopes."
+        },
+        "Civil": {
+            "pearson_r_coefficient": -0.11824294596397195,
+            "spearman_rank_coefficient": -0.14065173241487008,
+            "risk_assessment": "Inverse movement caused by allocation compression on heavy piping failure scopes."
+        },
+        "Other": {
+            "pearson_r_coefficient": -0.16118406703827182,
+            "spearman_rank_coefficient": -0.10881922308740258,
+            "risk_assessment": "Inverse movement caused by allocation compression on heavy piping failure scopes."
+        }
+    }
+}
